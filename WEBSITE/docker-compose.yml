@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      - SQLITE_PATH=/data/database.db
+      - TZ=Europe/Istanbul
+    volumes:
+      - ./:/var/www/html
+      - ./sqlite:/data
+    restart: unless-stopped
